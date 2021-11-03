@@ -1,0 +1,14 @@
+1. It uses basic and session auth by default. It's manages it using your username and password and the browser session.
+2. It uses basic auth with the -a flag. It's managed by sending username and password along with the request as username:password.
+3. Session Auth the server creates a session for the user, and the client (browser) stores a session id in a cookie. The cookie gets sent to the server with every request. The server just compares the session id to the session info it created. If the session info matches it fulfills the request.
+For Token Auth, the server creates a Token and a secret and sends it to the user. The browser saves the token somewhere and sends the Token as an Authorization header. The server checks if the token is valid and fulfills the request if it is.
+In Session, user info is stored in the server. In Token, the user info is saved client side.
+4. 
+ - application requests authorization from the user
+ - user grants authorization to the application
+ - the application requests a token from the OAuth API
+ - if auth was granted to the application, the API sends a token to the application
+ - the application sends the token and a request to the resource API
+ - if the token is valid, the resource server sends the requested resource to the application
+
+5. https://github.com/dijonron/authentication-lab
